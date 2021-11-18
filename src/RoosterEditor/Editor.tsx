@@ -5,33 +5,51 @@ import * as roosterjs from "roosterjs";
 
 export const Editor = () => {
   const editorRef = useRef<HTMLDivElement>(null);
-  var editor: IEditor;
+  const editor = useRef<IEditor>();
+
+  const [content, setContent] = useState("");
 
   useEffect(() => {
-    editor = getEditor(editorRef);
-  });
+    editor.current = getEditor(editorRef);
+  }, [content]);
 
   return (
     <React.Fragment>
+      <h1>User Input</h1>
       <div
         ref={editorRef}
         id="editorDiv"
         style={{
-          width: "500px",
+          width: "100%",
           height: "300px",
           overflow: "auto",
           border: "solid 1px black",
         }}
       ></div>
-      <button id="buttonB" onClick={() => roosterjs.toggleBold(editor!)}>
-        B
-      </button>
-      <button id="buttonI" onClick={() => roosterjs.toggleItalic(editor!)}>
-        I
-      </button>
-      <button id="buttonU" onClick={() => roosterjs.toggleUnderline(editor!)}>
+      <button onClick={() => roosterjs.toggleBold(editor.current!)}>B</button>
+      <button onClick={() => roosterjs.toggleItalic(editor.current!)}>I</button>
+      <button onClick={() => roosterjs.toggleUnderline(editor.current!)}>
         U
       </button>
+      <button
+        onClick={() => {
+          setContent(editor.current!.getContent());
+        }}
+      >
+        Generate html
+      </button>
+
+      <div
+        style={{
+          width: "100%",
+          height: "300px",
+          overflow: "auto",
+          border: "solid 1px black",
+        }}
+      >
+        <h1>HTML output</h1>
+        {content}
+      </div>
     </React.Fragment>
   );
 };
