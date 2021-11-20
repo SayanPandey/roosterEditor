@@ -1,0 +1,44 @@
+.section-block {
+  padding: 1rem;
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(227, 16, 255, 0.5)), to(rgba(0, 217, 255, 0.5)));
+  background: linear-gradient(to right, rgba(227, 16, 255, 0.5), rgba(0, 217, 255, 0.5));
+  padding: 3px;
+  margin: 20px 20px 20px 20px;
+  min-height: 200px;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.section-block .section-container {
+  margin: 5px 5px 5px 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: inherit;
+  border-radius: 5px;
+}
+
+.section-block .section-container .section-heading {
+  position: relative;
+  margin: 5px 5px 5px 20px;
+  color: #800591;
+  font-size: 40px;
+  display: block;
+}
+
+.section-block .section-container .section-heading::after {
+  content: "";
+  height: 1px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(227, 16, 255, 0.5)), to(rgba(0, 217, 255, 0.5)));
+  background: linear-gradient(to right, rgba(227, 16, 255, 0.5), rgba(0, 217, 255, 0.5));
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  width: 100%;
+}
+
+.section-block .section-container .section-desctiption {
+  margin: 5px 5px 5px 20px;
+  font-size: 15px;
+  min-height: inherit;
+}
+/*# sourceMappingURL=style.css.map */

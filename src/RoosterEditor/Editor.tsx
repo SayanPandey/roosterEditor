@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { IEditor } from "roosterjs-editor-types";
 import { getEditor } from "./rooster";
 import * as roosterjs from "roosterjs";
+import { createSection } from "./utils";
+import "./style.css";
 
 export const Editor = () => {
   const editorRef = useRef<HTMLDivElement>(null);
@@ -33,6 +35,20 @@ export const Editor = () => {
       </button>
       <button
         onClick={() => {
+          editor.current!.insertNode(createSection());
+        }}
+      >
+        Custom Section
+      </button>
+      <button
+        onClick={() => {
+          editor.current!.setContent("");
+        }}
+      >
+        Clear
+      </button>
+      <button
+        onClick={() => {
           setContent(editor.current!.getContent());
         }}
       >
@@ -42,13 +58,19 @@ export const Editor = () => {
       <div
         style={{
           width: "100%",
-          height: "300px",
+          height: "100%",
           overflow: "auto",
           border: "solid 1px black",
         }}
       >
         <h1>HTML output</h1>
         {content}
+        <h1>Rendered HTML</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: content,
+          }}
+        ></div>
       </div>
     </React.Fragment>
   );

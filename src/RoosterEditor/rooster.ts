@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import React, { RefObject } from "react";
 import { IEditor } from "roosterjs-editor-types";
 import * as roosterjs from "roosterjs";
 

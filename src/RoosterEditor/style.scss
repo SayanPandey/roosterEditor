@@ -1,0 +1,49 @@
+$background-color: linear-gradient(
+  to right,
+  rgba(227, 16, 255, 0.5),
+  rgba(0, 217, 255, 0.5)
+);
+$heading-text-color: rgb(128, 5, 145);
+
+.section-block {
+  padding: 1rem;
+  position: relative;
+  background: $background-color;
+  padding: 3px;
+  margin: 20px 20px 20px 20px;
+  min-height: 200px;
+  text-align: left;
+  border-radius: 10px;
+
+  .section-container {
+    margin: 5px 5px 5px 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: inherit;
+    border-radius: 5px;
+
+    .section-heading {
+      position: relative;
+      margin: 5px 5px 5px 20px;
+      color: $heading-text-color;
+      font-size: 40px;
+      display: block;
+
+      &::after {
+        content: "";
+        height: 1px;
+        background: $background-color;
+        position: absolute;
+        //   z-index: -1;
+        left: 0px;
+        top: 100%;
+        width: 100%;
+      }
+    }
+
+    .section-desctiption {
+      margin: 5px 5px 5px 20px;
+      font-size: 15px;
+      min-height: inherit;
+    }
+  }
+}
