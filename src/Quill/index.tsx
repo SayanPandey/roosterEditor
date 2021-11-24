@@ -11,11 +11,12 @@ export const QuillTextEditor = memo(() => {
     if (quillNode && quillNode.current) {
       const quill = quillNode.current;
       editor.current = quill.getEditor();
-      editor.current.insertEmbed(
-        0,
-        "image",
-        "https://miro.medium.com/max/580/0*uyPv5FeFHvOimMKn.jpg"
-      );
+      // editor.current.insertEmbed(
+      //   0,
+      //   "image",
+      //   "https://miro.medium.com/max/580/0*uyPv5FeFHvOimMKn.jpg"
+      // );
+      editor.current.pasteHTML("<h1>Hello</h1>");
     }
   }, [quillNode]);
 
@@ -32,6 +33,7 @@ export const QuillTextEditor = memo(() => {
           onClick={() => {
             editor?.current?.insertText(0, "image", "bold", true);
           }}
+          title="Add something here"
         />
       </div>
     </React.Fragment>

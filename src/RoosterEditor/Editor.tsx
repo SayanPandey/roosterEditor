@@ -28,7 +28,9 @@ export const Editor = () => {
           border: "solid 1px black",
         }}
       ></div>
-      <button onClick={() => roosterjs.toggleBold(editor.current!)}>B</button>
+      <button onClick={() => roosterjs.toggleBold(editor.current!)}>
+        Bold
+      </button>
       <button onClick={() => roosterjs.toggleItalic(editor.current!)}>I</button>
       <button onClick={() => roosterjs.toggleUnderline(editor.current!)}>
         U
@@ -42,7 +44,9 @@ export const Editor = () => {
       </button>
       <button
         onClick={() => {
-          editor.current!.setContent("");
+          editor.current!.setContent(
+            "<h1>Punit Gupta <input type='text'/></h1>"
+          );
         }}
       >
         Clear
