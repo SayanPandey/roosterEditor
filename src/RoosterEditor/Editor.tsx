@@ -4,15 +4,27 @@ import { getEditor } from "./rooster";
 import * as roosterjs from "roosterjs";
 import { createSection } from "./utils";
 import "./style.css";
+import { FONT_SIZES } from "roosterjs";
+import WithLineNumbers from "../common/Highlighter";
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"
+  data-manual
+></script>;
 
 export const Editor = () => {
   const editorRef = useRef<HTMLDivElement>(null);
   const editor = useRef<IEditor>();
 
   const [content, setContent] = useState("");
+  const [innerHTML, setInnerHTML] = useState("");
 
   useEffect(() => {
     editor.current = getEditor(editorRef);
+    editor.current!.addDomEventHandler("keydown", () => {
+      setContent(editor.current!.getContent(0));
+      setInnerHTML(editorRef.current!.innerHTML);
+    });
   }, [content]);
 
   return (
@@ -45,12 +57,26 @@ export const Editor = () => {
       <button
         onClick={() => {
           editor.current!.setContent(
-            "<h1>Punit Gupta <input type='text'/></h1>"
+            '<div style="font-family: Calibri, Arial, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);"><br></div>'
           );
         }}
       >
         Clear
       </button>
+      <select
+        onChange={(event) => {
+          const fontSelected = FONT_SIZES[event.target.selectedIndex];
+          roosterjs.setFontSize(editor.current!, String(fontSelected));
+          console.log(fontSelected);
+        }}
+      >
+        {FONT_SIZES.map((x) => (
+          <option value={x} style={{ fontSize: x }}>
+            Heading {x} px
+          </option>
+        ))}
+      </select>
+
       <button
         onClick={() => {
           setContent(editor.current!.getContent());
@@ -60,6 +86,7 @@ export const Editor = () => {
       </button>
 
       <div
+        className="fx-row"
         style={{
           width: "100%",
           height: "100%",
@@ -67,14 +94,18 @@ export const Editor = () => {
           border: "solid 1px black",
         }}
       >
-        <h1>HTML output</h1>
-        {content}
-        <h1>Rendered HTML</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: content,
-          }}
-        ></div>
+        <div style={{ flex: "1 1 0" }}>
+          <h1>Rendered HTML</h1>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: content,
+            }}
+          ></div>
+        </div>
+
+        <WithLineNumbers
+          code={content.replace(/>/g, "> \n").replace(/<\//g, "\n</")}
+        />
       </div>
     </React.Fragment>
   );

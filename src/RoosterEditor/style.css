@@ -41,4 +41,52 @@
   font-size: 15px;
   min-height: inherit;
 }
+
+.fx-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fx-row * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.fx-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fx-col * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.fx-auto {
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 1 0px !important;
+          flex: 1 1 0 !important;
+}
+
+.fx-default {
+  -webkit-box-flex: unset !important;
+      -ms-flex: unset !important;
+          flex: unset !important;
+}
 /*# sourceMappingURL=style.css.map */

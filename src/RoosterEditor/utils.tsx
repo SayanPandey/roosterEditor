@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { FONT_SIZES } from "roosterjs-editor-api";
 
 export const CreateElementImmutable = (): HTMLElement => {
   var block = document.createElement("span");
@@ -26,5 +27,9 @@ export const createSection = (): HTMLElement => {
   block.appendChild(container);
   container.appendChild(heading);
   container.appendChild(descrtiption);
+
+  /* test */
+  console.log(FONT_SIZES);
+
   return block;
 };
