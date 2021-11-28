@@ -8,7 +8,6 @@ interface props {
 
 export const WithLineNumbers = (props: props) => {
   const { code } = props;
-  console.log(code);
 
   return (
     <Highlight {...defaultProps} theme={theme} code={code} language="markup">

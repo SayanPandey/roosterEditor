@@ -89,4 +89,68 @@
       -ms-flex: unset !important;
           flex: unset !important;
 }
+
+.toolbar {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #545454;
+}
+
+.toolbar .group {
+  border: solid 1px #545454;
+}
+
+.toolbar .font-button-basic {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: solid 0.5px transparent;
+  background-color: #ffffff;
+}
+
+.toolbar .font-button-basic:hover {
+  background-color: #f4f4f4;
+  border: solid 0.5px #0bb3c5;
+  border-radius: 2px;
+  color: #0bb3c5;
+}
+
+.toolbar .font-family-select {
+  color: #545454;
+  max-width: 100px;
+}
+
+.toolbar .font-family-select:hover {
+  background-color: none;
+}
+
+.toolbar .font-family-select option {
+  background-color: #ffffff;
+}
+
+.toolbar .font-family-select option:hover {
+  color: #0bb3c5;
+  background-color: #f4f4f4;
+}
+
+.toolbar .color {
+  position: relative;
+  display: inline;
+}
+
+.toolbar .color .color-input {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  visibility: hidden;
+}
 /*# sourceMappingURL=style.css.map */

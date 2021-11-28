@@ -4,6 +4,10 @@ $background-color: linear-gradient(
   rgba(0, 217, 255, 0.5)
 );
 $heading-text-color: rgb(128, 5, 145);
+$primary-text-color: #545454;
+$primary-background-color: #ffffff;
+$primary-hover-text-color: #0bb3c5;
+$primary-hover-background-color: #f4f4f4;
 
 .section-block {
   padding: 1rem;
@@ -78,4 +82,59 @@ $heading-text-color: rgb(128, 5, 145);
 
 .fx-default {
   flex: unset !important;
+}
+
+//For toolbar
+.toolbar {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $primary-text-color;
+
+  .group {
+    border: solid 1px $primary-text-color;
+  }
+
+  .font-button-basic {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: solid 0.5px transparent;
+    background-color: $primary-background-color;
+
+    &:hover {
+      background-color: $primary-hover-background-color;
+      border: solid 0.5px $primary-hover-text-color;
+      border-radius: 2px;
+      color: $primary-hover-text-color;
+    }
+  }
+  .font-family-select {
+    color: $primary-text-color;
+    max-width: 100px;
+    &:hover {
+      background-color: none;
+    }
+    option {
+      background-color: $primary-background-color;
+      &:hover {
+        color: $primary-hover-text-color;
+        background-color: $primary-hover-background-color;
+      }
+    }
+  }
+  .color {
+    position: relative;
+    display: inline;
+    .color-input {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      visibility: hidden;
+    }
+  }
 }
