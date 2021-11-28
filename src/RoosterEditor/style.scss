@@ -87,13 +87,17 @@ $primary-hover-background-color: #f4f4f4;
 //For toolbar
 .toolbar {
   width: 100%;
-  align-items: center;
-  justify-content: center;
+  padding-left: 4px;
+  justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
   color: $primary-text-color;
+  border-top: solid 1.5px black;
 
   .group {
-    border: solid 1px $primary-text-color;
+    align-items: center;
+    padding: 4px;
+    border-right: solid 0.5px $primary-text-color;
+    // border-left: solid 0.5px $primary-text-color;
   }
 
   .font-button-basic {
@@ -110,12 +114,14 @@ $primary-hover-background-color: #f4f4f4;
       background-color: $primary-hover-background-color;
       border: solid 0.5px $primary-hover-text-color;
       border-radius: 2px;
-      color: $primary-hover-text-color;
+      // color: $primary-hover-text-color;
+      color: transparent;
+      text-shadow: 0 0 0 $primary-hover-text-color;
     }
   }
   .font-family-select {
     color: $primary-text-color;
-    max-width: 100px;
+    max-width: 150px;
     &:hover {
       background-color: none;
     }
@@ -135,6 +141,16 @@ $primary-hover-background-color: #f4f4f4;
       top: 0px;
       right: 0px;
       visibility: hidden;
+    }
+  }
+  .link-container {
+    position: relative;
+    // display: none;
+    visibility: hidden;
+    .link-set-container {
+      position: absolute;
+      top: -3px;
+      left: 30px;
     }
   }
 }

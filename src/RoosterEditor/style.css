@@ -92,18 +92,21 @@
 
 .toolbar {
   width: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding-left: 4px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
   color: #545454;
+  border-top: solid 1.5px black;
 }
 
 .toolbar .group {
-  border: solid 1px #545454;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px;
+  border-right: solid 0.5px #545454;
 }
 
 .toolbar .font-button-basic {
@@ -121,12 +124,13 @@
   background-color: #f4f4f4;
   border: solid 0.5px #0bb3c5;
   border-radius: 2px;
-  color: #0bb3c5;
+  color: transparent;
+  text-shadow: 0 0 0 #0bb3c5;
 }
 
 .toolbar .font-family-select {
   color: #545454;
-  max-width: 100px;
+  max-width: 150px;
 }
 
 .toolbar .font-family-select:hover {
@@ -152,5 +156,16 @@
   top: 0px;
   right: 0px;
   visibility: hidden;
+}
+
+.toolbar .link-container {
+  position: relative;
+  visibility: hidden;
+}
+
+.toolbar .link-container .link-set-container {
+  position: absolute;
+  top: -3px;
+  left: 30px;
 }
 /*# sourceMappingURL=style.css.map */

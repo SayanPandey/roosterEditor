@@ -21,14 +21,12 @@ export const Editor = () => {
 
   useEffect(() => {
     editor.current = getEditor(editorRef);
+    editor.current.triggerContentChangedEvent();
     editor.current!.addDomEventHandler("click", () => {
       setContent(editor.current!.getContent(0));
     });
-    // setContent(editor.current!.getContent());
-    // return()=>{
-    //   editor.current!
-    // }
-  }, [editor]);
+    setContent(editor.current!.getContent());
+  }, [editor.current]);
 
   return (
     <React.Fragment>
@@ -46,76 +44,42 @@ export const Editor = () => {
           }}
         ></div>
 
-        <div className="toolbar">
-          <button
-            onClick={() => roosterjs.createLink(editor.current!, "abcd.com")}
-          >
-            <s>Link</s>
-          </button>
-
-          <button
-            onClick={() => {
-              editor.current!.insertNode(createSection());
-            }}
-          >
-            Custom Section
-          </button>
-          <button
-            onClick={() => {
-              editor.current!.setContent("");
-            }}
-          >
-            Clear
-          </button>
-
-          <label>
-            Background Color
-            <input
-              type="color"
-              id="favcolor"
-              name="favcolor"
-              value={bgColor}
-              onChange={(event) => {
-                setbgColor(event.target.value);
-                roosterjs.setBackgroundColor(
-                  editor.current!,
-                  String(event.target.value)
-                );
-              }}
-            />
-          </label>
-
-          {/* <button
-            onClick={() => {
-              setContent(editor.current!.getContent());
-            }}
-          >
-            Generate html
-          </button> */}
-        </div>
-
-        <div
-          className="fx-row"
-          style={{
-            width: "100%",
-            height: "600px",
-            overflow: "auto",
-            border: "solid 1px black",
+        <button
+          onClick={() => {
+            editor.current!.insertNode(createSection());
           }}
         >
-          <div style={{ minWidth: "50%", flex: "1 1 0" }}>
-            <h1>Rendered HTML</h1>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: content,
-              }}
-            ></div>
-          </div>
+          Custom Section
+        </button>
+        <button
+          onClick={() => {
+            editor.current!.setContent("");
+          }}
+        >
+          Clear
+        </button>
+      </div>
 
-          <WithLineNumbers
-            code={content.replace(/>/g, "> \n").replace(/<\//g, "\n</")}
-          />
+      <div
+        className="fx-row"
+        style={{
+          width: "100%",
+          height: "600px",
+          overflow: "auto",
+          border: "solid 1px black",
+        }}
+      >
+        <div style={{ minWidth: "50%", flex: "1 1 0" }}>
+          <h1>Rendered HTML</h1>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: content,
+            }}
+          ></div>
         </div>
+        <WithLineNumbers
+          code={content.replace(/>/g, "> \n").replace(/<\//g, "\n</")}
+        />
       </div>
     </React.Fragment>
   );
