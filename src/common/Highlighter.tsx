@@ -12,7 +12,7 @@ export const WithLineNumbers = (props: props) => {
   return (
     <Highlight {...defaultProps} theme={theme} code={code} language="markup">
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Pre className={className} style={style}>
+        <Pre className={className} style={{ ...style, fontSize: "24px" }}>
           {tokens.map((line, i) => (
             <Line key={i} {...getLineProps({ line, key: i })}>
               <LineNo>{i + 1}</LineNo>

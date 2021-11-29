@@ -35,8 +35,6 @@ export const createSection = (editor: any): HTMLElement => {
   block.appendChild(container);
   container.appendChild(heading);
   container.appendChild(descrtiption);
-  const something = editor.getBlockElementAtNode(block);
-  console.log(something);
 
   return block;
 };

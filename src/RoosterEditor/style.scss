@@ -9,6 +9,23 @@ $primary-background-color: #ffffff;
 $primary-hover-text-color: #0bb3c5;
 $primary-hover-background-color: #f4f4f4;
 
+.main-container {
+  background-image: url("../assets/36.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.editor-container {
+  position: absolute;
+  top: 412px;
+  left: 1515px;
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
 .section-block {
   padding: 1rem;
   position: relative;
@@ -86,29 +103,40 @@ $primary-hover-background-color: #f4f4f4;
   flex: unset !important;
 }
 
+.full-height {
+  height: 100%;
+}
+
 //For toolbar
 .toolbar {
+  background-color: #ffffff;
+  max-width: 1161px;
   width: 100%;
   padding-left: 4px;
   justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
   color: $primary-text-color;
   border-top: solid 1.5px black;
+  border-left: solid 1.5px black;
+  border-right: solid 1.5px black;
+  font-size: 24px;
 
   .group {
     align-items: center;
     padding: 4px;
     border-right: solid 0.5px $primary-text-color;
-    // border-left: solid 0.5px $primary-text-color;
+    // &:first-child {
+    //   border-left: solid 0.5px $primary-text-color;
+    // }
   }
 
   .font-button-basic {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
     border: solid 0.5px transparent;
     background-color: $primary-background-color;
 
@@ -121,9 +149,22 @@ $primary-hover-background-color: #f4f4f4;
       text-shadow: 0 0 0 $primary-hover-text-color;
     }
   }
+
+  .config-buttons {
+    background-color: #ffffff;
+    border: solid 1px $primary-text-color;
+    border-radius: 5px;
+    font-size: 16px;
+    &:hover {
+      border-color: $primary-hover-text-color;
+      color: $primary-hover-text-color;
+    }
+  }
+
   .font-family-select {
     color: $primary-text-color;
-    max-width: 150px;
+    max-width: 500px;
+    font-size: 24px;
     &:hover {
       background-color: none;
     }
@@ -162,7 +203,7 @@ $primary-hover-background-color: #f4f4f4;
   font-family: "Times New Roman&quot;", serif;
   color: $primary-text-color;
   display: block;
-  max-width: 600px;
+  // max-width: 600px;
   text-align: left;
 
   border-bottom: solid 0.5px #b1b1b1;

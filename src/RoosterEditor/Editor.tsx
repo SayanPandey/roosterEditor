@@ -30,23 +30,24 @@ export const Editor = () => {
 
   return (
     <React.Fragment>
-      <div className="fx-col">
-        <h1>User Input</h1>
-        <Toolbar editor={editor.current!} />
-        <div
-          ref={editorRef}
-          id="editorDiv"
-          style={{
-            width: "100%",
-            height: "300px",
-            overflow: "auto",
-            border: "solid 1px black",
-          }}
-        ></div>
+      <div className="fx-col main-container">
+        <div className="fx-col editor-container">
+          <Toolbar editor={editor.current!} />
+          <div
+            ref={editorRef}
+            id="editorDiv"
+            style={{
+              width: "1165px",
+              height: "820px",
+              overflow: "auto",
+              border: "solid 1px black",
+            }}
+          ></div>
+        </div>
       </div>
 
       <div
-        className="fx-row"
+        className="fx-row html-container"
         style={{
           width: "100%",
           height: "600px",
@@ -54,14 +55,14 @@ export const Editor = () => {
           border: "solid 1px black",
         }}
       >
-        <div style={{ minWidth: "50%", flex: "1 1 0" }}>
+        {/* <div style={{ minWidth: "50%", flex: "1 1 0" }}>
           <h1>Rendered HTML</h1>
           <div
             dangerouslySetInnerHTML={{
               __html: content,
             }}
           ></div>
-        </div>
+        </div> */}
         <WithLineNumbers
           code={content.replace(/>/g, "> \n").replace(/<\//g, "\n</")}
         />

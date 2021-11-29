@@ -27,6 +27,7 @@ export const Toolbar = (props: IToolbarProps) => {
   const inputColorRef = useRef<HTMLInputElement>(null);
   const inputBGColorRed = useRef<HTMLInputElement>(null);
   const linkContainerRef = useRef<HTMLDivElement>(null);
+  const linkCount = useRef<number>(0);
 
   const [textColor, settextColor] = useState("#545454");
   const [bgColor, setbgColor] = useState("#ffffff");
@@ -36,7 +37,6 @@ export const Toolbar = (props: IToolbarProps) => {
     <React.Fragment>
       <div className="fx-row toolbar">
         <div className="fx-col group">
-          {/* Font family and Size */}
           <div className="fx-row">
             <select
               className="font-family-select"
@@ -173,27 +173,28 @@ export const Toolbar = (props: IToolbarProps) => {
               >
                 <div className="fx-col link-set-container">
                   <input
+                    style={{ fontSize: "24px" }}
                     onChange={(event) => setlink(event.target.value)}
                     type="text"
                   />
                   <div className="fx-row ">
                     <button
                       className="font-button-basic"
-                      style={{ fontSize: 10, width: "auto" }}
+                      style={{ width: "auto" }}
                       onClick={() => roosterjs.createLink(editor, link)}
                     >
                       Set
                     </button>
                     <button
                       className="font-button-basic"
-                      style={{ fontSize: 10, width: "auto" }}
+                      style={{ width: "auto" }}
                       onClick={() => roosterjs.removeLink(editor)}
                     >
                       Remove
                     </button>
                     <button
                       className="font-button-basic"
-                      style={{ fontSize: 10, width: "auto" }}
+                      style={{ width: "auto" }}
                       onClick={() =>
                         linkContainerRef.current?.setAttribute(
                           "style",
@@ -212,6 +213,7 @@ export const Toolbar = (props: IToolbarProps) => {
 
         {/* Alignments control */}
         <div className="fx-col group">
+          Alignment
           <div className="fx-row">
             <button
               className="font-button-basic"
@@ -232,10 +234,10 @@ export const Toolbar = (props: IToolbarProps) => {
               &#8594;
             </button>
           </div>
-          Alignment
         </div>
 
         <div className="fx-col group">
+          Notice templates
           <div className="fx-row">
             <button
               className="font-button-basic"
@@ -251,19 +253,27 @@ export const Toolbar = (props: IToolbarProps) => {
               &#9857;
             </button>
           </div>
-          Notice templates
         </div>
 
         <div className="fx-col group">
-          <div className="fx-row">
+          Config buttons
+          <div className="fx-row" style={{ marginTop: "15px" }}>
             <button
-              className="font-button-basic"
+              className="config-buttons"
+              style={{ width: "50px", marginRight: "15px" }}
               onClick={() => editor.setContent("")}
             >
-              &#215;
+              &#128190; Save
+            </button>
+
+            <button
+              className="config-buttons"
+              style={{ width: "50px" }}
+              onClick={() => editor.setContent("")}
+            >
+              &#8635; Clear
             </button>
           </div>
-          Clear
         </div>
       </div>
     </React.Fragment>
