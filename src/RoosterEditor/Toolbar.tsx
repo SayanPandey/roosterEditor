@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Alignment, IEditor } from "roosterjs-editor-types";
 import * as roosterjs from "roosterjs";
 import { FONT_SIZES } from "roosterjs";
+import { createSection, noticeTemplate2 } from "./utils";
 
 interface IToolbarProps {
   editor: IEditor;
@@ -161,12 +162,12 @@ export const Toolbar = (props: IToolbarProps) => {
                 &#128279;
               </button>
               <div
-                onBlur={() =>
-                  linkContainerRef.current?.setAttribute(
-                    "style",
-                    "visibility:hidden"
-                  )
-                }
+                // onBlur={() =>
+                //   linkContainerRef.current?.setAttribute(
+                //     "style",
+                //     "visibility:hidden"
+                //   )
+                // }
                 ref={linkContainerRef}
                 className="fx-col link-container"
               >
@@ -234,32 +235,36 @@ export const Toolbar = (props: IToolbarProps) => {
           Alignment
         </div>
 
-        {/* Lists control */}
-        {/* <div className="fx-col group">
+        <div className="fx-col group">
           <div className="fx-row">
             <button
               className="font-button-basic"
-              onClick={() =>
-                roosterjs.insertEntity
-              }
+              onClick={() => editor.insertNode(noticeTemplate2())}
             >
-              LI
+              &#9847;
             </button>
+
             <button
               className="font-button-basic"
-              onClick={() => roosterjs.setAlignment(editor, 1)}
+              onClick={() => editor.insertNode(createSection(editor))}
             >
-              &#8596;
-            </button>
-            <button
-              className="font-button-basic"
-              onClick={() => roosterjs.setAlignment(editor, 2)}
-            >
-              &#8594;
+              &#9857;
             </button>
           </div>
-          Alignment
-        </div> */}
+          Notice templates
+        </div>
+
+        <div className="fx-col group">
+          <div className="fx-row">
+            <button
+              className="font-button-basic"
+              onClick={() => editor.setContent("")}
+            >
+              &#215;
+            </button>
+          </div>
+          Clear
+        </div>
       </div>
     </React.Fragment>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { IEditor } from "roosterjs-editor-types";
 import { getEditor } from "./rooster";
 import * as roosterjs from "roosterjs";
-import { createSection } from "./utils";
+import { createSection, noticeTemplate1, noticeTemplate2 } from "./utils";
 import "./style.css";
 import WithLineNumbers from "../common/Highlighter";
 import { Toolbar } from "./Toolbar";
@@ -43,21 +43,6 @@ export const Editor = () => {
             border: "solid 1px black",
           }}
         ></div>
-
-        <button
-          onClick={() => {
-            editor.current!.insertNode(createSection());
-          }}
-        >
-          Custom Section
-        </button>
-        <button
-          onClick={() => {
-            editor.current!.setContent("");
-          }}
-        >
-          Clear
-        </button>
       </div>
 
       <div

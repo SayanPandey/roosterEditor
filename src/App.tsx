@@ -8,14 +8,14 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <nav>
+      {/* <nav>
         <Link to={"/"}>Rooster</Link> <Link to={"/quill"}>Quill</Link>{" "}
         <Link to={"/quill_generic"}>Generic Quill</Link>
-      </nav>
+      </nav> */}
       <Routes>
         <Route path="/" element={<Editor />} />
-        <Route path="/quill" element={<QuillTextEditor />} />
-        <Route path="/quill_generic" element={<Quill_generic />} />
+        {/* <Route path="/quill" element={<QuillTextEditor />} />
+        <Route path="/quill_generic" element={<Quill_generic />} /> */}
       </Routes>
     </div>
   );
